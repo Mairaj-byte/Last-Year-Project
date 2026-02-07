@@ -19,6 +19,22 @@ const LandingPage = () => {
     }
    };
 
+   const handleClickbrand = () => {
+    if(!isSignedIn) {
+      navigate("/signinpage");
+    } else {
+      navigate("/brandlist");
+    }
+   };
+
+   const handleClickcreator = () => {
+    if(!isSignedIn) {
+      navigate("/signinpage");
+    } else {
+      navigate("/influlist");
+    }
+   };
+
   return (
     
     <div className="bg-white text-gray-900">
@@ -58,10 +74,10 @@ const LandingPage = () => {
             influencer marketing platform.
           </p>
           <div className="mt-8 flex gap-4">
-            <button onClick={()=> { navigate('/influlist') }} className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-lg hover:bg-indigo-700">
+            <button onClick={handleClickbrand} className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-lg hover:bg-indigo-700">
               For Brands
             </button>
-            <button onClick={()=> { navigate('/brandlist') }} className="border border-gray-300 px-5 py-2 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
+            <button onClick={handleClickcreator} className="border border-gray-300 px-5 py-2 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
               For Creators
             </button>
           </div>
