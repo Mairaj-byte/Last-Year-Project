@@ -1,18 +1,48 @@
 import React from "react";
+import hero from '../assets/hero_img.png';
+import { Link, NavLink } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
+
+
 
 const LandingPage = () => {
+
+  const navigate = useNavigate();
+  const { isSignedIn } = useUser();
+
+   const handleClick = () => {
+    if(!isSignedIn) {
+      navigate("/signinpage");
+    } else {
+      navigate("/brandlist");
+    }
+   };
+
   return (
+    
     <div className="bg-white text-gray-900">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold text-indigo-600">Influexa</h1>
         <div className="space-x-6 hidden md:flex">
-          <a href="#" className="hover:text-indigo-600">Brands</a>
-          <a href="#" className="hover:text-indigo-600">Creators</a>
-          <a href="#" className="hover:text-indigo-600">Pricing</a>
-          <a href="#" className="hover:text-indigo-600">Login</a>
+          <NavLink to='/brandlist' className="hover:text-indigo-600">
+            Brands
+          </NavLink>
+          <NavLink to='/influlist' className="hover:text-indigo-600">
+            Craetors
+          </NavLink>
+          <NavLink to='/' className="hover:text-indigo-600">
+            Pricing
+          </NavLink>
+          <NavLink to='/login' className="hover:text-indigo-600">
+            Login
+          </NavLink>
+
+
+
         </div>
-        <button className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700">
+        <button onClick={handleClick} className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700">
           Get Started
         </button>
       </nav>
@@ -20,7 +50,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-5xl font-extrabold leading-tight">
+          <h2 className="text-4xl font-extrabold leading-tight">
             Connect Brands with <span className="text-indigo-600">Influencers</span> That Convert
           </h2>
           <p className="mt-6 text-lg text-gray-600">
@@ -28,18 +58,18 @@ const LandingPage = () => {
             influencer marketing platform.
           </p>
           <div className="mt-8 flex gap-4">
-            <button className="bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg hover:bg-indigo-700">
+            <button onClick={()=> { navigate('/influlist') }} className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-lg hover:bg-indigo-700">
               For Brands
             </button>
-            <button className="border border-gray-300 px-8 py-4 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
+            <button onClick={()=> { navigate('/brandlist') }} className="border border-gray-300 px-5 py-2 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
               For Creators
             </button>
           </div>
         </div>
 
         {/* Hero Visual */}
-        <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl h-96 flex items-center justify-center text-indigo-600 text-2xl font-bold">
-          Campaign Analytics Preview
+        <div className="rounded-3xl h-96 flex items-center justify-center text-indigo-600 text-2xl font-bold">
+          <img src={hero} alt="hero image" />
         </div>
       </section>
 
