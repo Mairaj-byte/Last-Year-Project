@@ -1,67 +1,42 @@
 import React from "react";
+import { useContext } from "react";
+import { ShopContext } from "../context/ShopContext";
 import hero from '../assets/hero_img.png';
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
+
+
+
 
 
 
 const LandingPage = () => {
 
   const navigate = useNavigate();
-  const { isSignedIn } = useUser();
+  const { token, identity, logout } = useContext(ShopContext);
 
-   const handleClick = () => {
-    if(!isSignedIn) {
-      navigate("/signinpage");
-    } else {
-      navigate("/brandlist");
-    }
-   };
+  const handleGetStarted = () => {
+  if (!token) {
+    navigate("/signinpage");
+    return;
+  }
 
-   const handleClickbrand = () => {
-    if(!isSignedIn) {
-      navigate("/signinpage");
-    } else {
-      navigate("/brandlist");
-    }
-   };
+  if (identity === "brand") {
+    navigate("/influlist");
+  } else if (identity === "creator") {
+    navigate("/brandlist");
+  }
+};
 
-   const handleClickcreator = () => {
-    if(!isSignedIn) {
-      navigate("/signinpage");
-    } else {
-      navigate("/influlist");
-    }
-   };
+
+  
+
+
 
   return (
-    
+
     <div className="bg-white text-gray-900">
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
-        <h1 className="text-2xl font-bold text-indigo-600">Influexa</h1>
-        <div className="space-x-6 hidden md:flex">
-          <NavLink to='/brandlist' className="hover:text-indigo-600">
-            Brands
-          </NavLink>
-          <NavLink to='/influlist' className="hover:text-indigo-600">
-            Craetors
-          </NavLink>
-          <NavLink to='/' className="hover:text-indigo-600">
-            Pricing
-          </NavLink>
-          <NavLink to='/login' className="hover:text-indigo-600">
-            Login
-          </NavLink>
-
-
-
-        </div>
-        <button onClick={handleClick} className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700">
-          Get Started
-        </button>
-      </nav>
+      
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-12 items-center">
@@ -74,10 +49,10 @@ const LandingPage = () => {
             influencer marketing platform.
           </p>
           <div className="mt-8 flex gap-4">
-            <button onClick={handleClickbrand} className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-lg hover:bg-indigo-700">
+            <button onClick={handleGetStarted} className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-lg hover:bg-indigo-700">
               For Brands
             </button>
-            <button onClick={handleClickcreator} className="border border-gray-300 px-5 py-2 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
+            <button onClick={handleGetStarted} className="border border-gray-300 px-5 py-2 rounded-xl text-lg hover:border-indigo-600 hover:text-indigo-600">
               For Creators
             </button>
           </div>
@@ -170,12 +145,11 @@ const LandingPage = () => {
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="py-10 text-center text-gray-500">
-        © {new Date().getFullYear()} Influexa. All rights reserved.
-      </footer>
+      
     </div>
   );
 };
 
 export default LandingPage;
+
+

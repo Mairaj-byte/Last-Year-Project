@@ -1,18 +1,65 @@
 import React from 'react'
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 const BrandListing = () => {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Brand Listing</h1>
-
-      <SignedIn>
-        <UserButton afterSignOutUrl="/" />
-      </SignedIn>
-
-      <SignedOut>
-        <p>Please sign in to access this page.</p>
-      </SignedOut>
+    <div>BrandListing
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
+      Laborum molestias aspernatur laboriosam obcaecati sed? Odit sed soluta cumque non, nesciunt, explicabo omnis libero ipsum voluptatem adipisci eos optio, labore dolores corporis obcaecati numquam voluptatibus. Libero quibusdam architecto placeat.
+      
     </div>
   )
 }

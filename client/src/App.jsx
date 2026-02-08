@@ -12,11 +12,15 @@ import InfluencerListing from './pages/InfluencerListing'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import ProfileSetup from './pages/ProfileSetup'
 
 const App = () => {
   return (
     <>
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/landing" element={<LandingPage />} />
@@ -25,10 +29,15 @@ const App = () => {
           <Route path="/branddash" element={<BrandDash />} />
           <Route path="/influencerdash" element={<InfluencerDash />} />
 
+          <Route path="/profilesetup" element={<ProfileSetup />} />
+
+
+
           <Route path="/signinpage" element={<SignInPage />} />
           <Route path="/brandlist" element={<BrandListing />} />
           <Route path="/influlist" element={<InfluencerListing />} />
         </Routes>
+        <Footer />
       </div>
 
       {/* Toast Notifications */}
