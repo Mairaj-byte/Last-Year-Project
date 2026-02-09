@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const ProfileSetup = () => {
   const navigate = useNavigate();
@@ -18,6 +18,9 @@ const ProfileSetup = () => {
     location: "",
     pricePerPost: ""
   });
+
+  const [profileImage, setProfileImage] = useState(null);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -40,7 +43,7 @@ const ProfileSetup = () => {
             pricePerPost: res.data.pricePerPost || ""
           });
         }
-      } catch (err) {}
+      } catch (err) { }
     };
 
     fetchProfile();
@@ -53,34 +56,46 @@ const ProfileSetup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formDataToSend = new FormData();
+
+    formDataToSend.append("username", formData.username);
+    formDataToSend.append("bio", formData.bio);
+    formDataToSend.append("niche", formData.niche);
+    formDataToSend.append(
+      "socialLinks",
+      JSON.stringify({
+        instagram: formData.instagram,
+        youtube: formData.youtube
+      })
+    );
+    formDataToSend.append("followersCount", formData.followersCount);
+    formDataToSend.append("engagementRate", formData.engagementRate);
+    formDataToSend.append("location", formData.location);
+    formDataToSend.append("pricePerPost", formData.pricePerPost);
+
+    if (profileImage) {
+      formDataToSend.append("profileImage", profileImage);
+    }
+
     try {
       await axios.post(
         "http://localhost:4000/api/profile",
+        formDataToSend,
         {
-          username: formData.username,
-          bio: formData.bio,
-          niche: formData.niche,
-          socialLinks: {
-            instagram: formData.instagram,
-            youtube: formData.youtube
-          },
-          followersCount: formData.followersCount,
-          engagementRate: formData.engagementRate,
-          location: formData.location,
-          pricePerPost: formData.pricePerPost
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data"
+          }
+        }
       );
 
-      toast.success("Profile completed successfully ");
-
-      setTimeout(() => {
-        navigate("/influencerdash");
-      }, 1200);
+      toast.success("Profile completed successfully");
+      navigate("/influencerdash");
     } catch (err) {
-      toast.error("Profile save failed ");
+      toast.error("Profile save failed");
     }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center px-3 bg-gray-50">
@@ -169,13 +184,21 @@ const ProfileSetup = () => {
               onChange={handleChange}
               className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
+
           </div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setProfileImage(e.target.files[0])}
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300"
+          />
+
 
           <button
             type="submit"
             className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-xl transition shadow-md"
           >
-            Save Profile 
+            Save Profile
           </button>
         </form>
       </div>
