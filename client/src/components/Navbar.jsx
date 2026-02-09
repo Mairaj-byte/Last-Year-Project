@@ -18,9 +18,10 @@ const Navbar = () => {
   }, [token ]);
 
   return (
+    
     <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
       <h1
-        className="text-2xl font-bold text-indigo-600 cursor-pointer"
+        className="text-3xl font-bold text-indigo-600 cursor-pointer"
         onClick={() => navigate("/")}
       >
         Influexa
