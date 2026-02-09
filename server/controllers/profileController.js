@@ -1,26 +1,33 @@
 import Profile from "../models/profileModel.js";
+import cloudinary from "../config/cloudinary.js";
 
 export const createOrUpdateProfile = async (req, res) => {
   try {
     const userId = req.user;
+    let profileImage;
 
-    const existingProfile = await Profile.findOne({ userId });
-
-    if (existingProfile) {
-      const updated = await Profile.findOneAndUpdate(
-        { userId },
-        req.body,
-        { new: true }
-      );
-      return res.json(updated);
+    // Upload image if exists
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "profiles"
+      });
+      profileImage = result.secure_url;
     }
 
-    const newProfile = await Profile.create({
-      userId,
-      ...req.body
-    });
+    const data = {
+      ...req.body,
+      socialLinks: JSON.parse(req.body.socialLinks || "{}")
+    };
 
-    res.status(201).json(newProfile);
+    if (profileImage) data.profileImage = profileImage;
+
+    const profile = await Profile.findOneAndUpdate(
+      { userId },
+      { userId, ...data },
+      { new: true, upsert: true }
+    );
+
+    res.status(201).json(profile);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

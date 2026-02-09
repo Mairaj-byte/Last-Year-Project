@@ -11,6 +11,11 @@ const profileSchema = new mongoose.Schema(
     username: String,
     bio: String,
     niche: String,
+
+    profileImage: {
+      type: String // Cloudinary image URL
+    },
+
     socialLinks: {
       instagram: String,
       youtube: String
