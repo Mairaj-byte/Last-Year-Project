@@ -2,7 +2,8 @@ import React from 'react'
 
 const BrandListing = () => {
   return (
-    <div>BrandListing
+
+    <div className="max-w-7xl mx-auto px-4">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quibusdam hic quasi odio quod deleniti. Minus quibusdam neque quasi, obcaecati eos, voluptatibus aliquam magni corporis voluptatem odit magnam suscipit quia.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsum mollitia doloribus deserunt veritatis asperiores, ea dolorem quisquam eveniet assumenda, explicabo nulla molestias quas delectus sequi dolores fuga nemo voluptatum.
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eos maxime quibusdam autem dolore consequatur est quos? Deleniti, quia magnam incidunt animi repudiandae consectetur quasi perspiciatis? Deleniti veniam error dignissimos!
