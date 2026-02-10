@@ -9,6 +9,7 @@ import SignInPage from "./pages/SignInPage";
 import BrandListing from "./pages/BrandListing";
 import InfluencerListing from "./pages/InfluencerListing";
 import ProfileSetup from "./pages/ProfileSetup";
+import InProfileDetail from "./pages/InProfileDetail";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -35,6 +36,8 @@ const App = () => {
         <Route path="/signinpage" element={<SignInPage />} />
         <Route path="/brandlist" element={<BrandListing />} />
         <Route path="/influlist" element={<InfluencerListing />} />
+        <Route path="/profile/:id" element={<InProfileDetail />} />
+
       </Routes>
 
       <Footer />

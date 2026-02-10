@@ -69,6 +69,7 @@ const Navbar = () => {
           Get Started
         </button>
       )}
+      
     </nav>
   );
 };
