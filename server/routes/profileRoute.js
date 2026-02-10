@@ -1,17 +1,30 @@
 import express from "express";
-import { createOrUpdateProfile, getMyProfile } from "../controllers/profileController.js";
+import {
+  createOrUpdateProfile,
+  getMyProfile,
+  listProfiles,
+  singleProfile,
+} from "../controllers/profileController.js";
+
 import authMiddleware from "../middleware/authMiddleware.js";
 import upload from "../middleware/upload.js";
 
 const profileRouter = express.Router();
 
-profileRouter.post(
-  "/",
+// Create / Update Profile
+profileRouter.post( "/",
   authMiddleware,
   upload.single("profileImage"),
   createOrUpdateProfile
 );
 
-profileRouter.get("/me", authMiddleware, getMyProfile);
+// Logged-in user profile
+profileRouter.get("/me" , getMyProfile);
+
+// All profiles (listing page)
+profileRouter.get("/list", listProfiles);
+
+// Single profile (detail page)
+profileRouter.get("/:userId", singleProfile);
 
 export default profileRouter;
