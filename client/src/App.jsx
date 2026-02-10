@@ -20,41 +20,34 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <>
-    <div className="max-w-7xl mx-auto px-4">
-      <Navbar />
+      <div className="max-w-7xl mx-auto px-4">
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
 
-        <Route path="/admindash" element={<AdminDash />} />
-        <Route path="/branddash" element={<BrandDash />} />
-        <Route path="/influencerdash" element={<InfluencerDash />} />
+          <Route path="/admindash" element={<AdminDash />} />
+          <Route path="/branddash" element={<BrandDash />} />
+          <Route path="/influencerdash" element={<InfluencerDash />} />
 
-        <Route path="/profilesetup" element={<ProfileSetup />} />
+          <Route path="/profilesetup" element={<ProfileSetup />} />
 
-        <Route path="/signinpage" element={<SignInPage />} />
-        <Route path="/brandlist" element={<BrandListing />} />
-        <Route path="/influlist" element={<InfluencerListing />} />
-        <Route path="/profile/:id" element={<InProfileDetail />} />
+          <Route path="/signinpage" element={<SignInPage />} />
+          <Route path="/brandlist" element={<BrandListing />} />
+          <Route path="/influlist" element={<InfluencerListing />} />
+          <Route path="/profile/:id" element={<InProfileDetail />} />
 
-      </Routes>
+        </Routes>
 
-      <Footer />
+        <Footer />
 
-      <ToastContainer
-  position="top-right"
-  autoClose={2000}
-  hideProgressBar={false}
-  newestOnTop
-  closeOnClick
-  pauseOnHover
-/>
+        <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop closeOnClick/>
 
 
-    </div>
+      </div>
 
-      
+
     </>
   );
 };
