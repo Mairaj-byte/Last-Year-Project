@@ -35,7 +35,7 @@ const LandingPage = () => {
 
   return (
 
-    <div className="bg-white text-gray-900">
+    <div className="mt-23 bg-white text-gray-900">
       
 
       {/* Hero Section */}

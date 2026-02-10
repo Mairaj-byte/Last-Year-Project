@@ -85,8 +85,8 @@ const ProfileSetup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-slate-100 px-4">
-      <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl p-8">
+    <div className="min-h-screen mt-25 flex items-center justify-start px-4">
+      <div className="w-full max-w-xl bg-white shadow-lg p-8">
         <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
           Creator Profile
         </h2>
