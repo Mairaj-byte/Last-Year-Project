@@ -19,7 +19,7 @@ const CreatorCard = ({ creator }) => {
 
   return (
     <div
-      onClick={() => navigate(`/profile/${creator.userId}`)}
+      onClick={() => navigate(`/profile/${_id}`)}
 
       className="cursor-pointer bg-white rounded-2xl shadow-sm hover:shadow-md transition p-6 border"
     >
