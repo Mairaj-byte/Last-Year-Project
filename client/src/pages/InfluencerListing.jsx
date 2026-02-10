@@ -43,8 +43,9 @@ const InfluencerListing = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {creators.map((creator) => (
-            <CreatorCard key={creator.userId} creator={creator} />
+            <CreatorCard key={creator._id} creator={creator} />
           ))}
+
         </div>
       )}
     </div>

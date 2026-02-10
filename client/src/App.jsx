@@ -42,7 +42,15 @@ const App = () => {
 
       <Footer />
 
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer
+  position="top-right"
+  autoClose={2000}
+  hideProgressBar={false}
+  newestOnTop
+  closeOnClick
+  pauseOnHover
+/>
+
 
     </div>
 

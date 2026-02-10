@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 
 const ProfileSetup = () => {
   const navigate = useNavigate();
@@ -41,7 +38,7 @@ const ProfileSetup = () => {
             pricePerPost: res.data.pricePerPost || ""
           });
         }
-      } catch (err) { }
+      } catch (err) {}
     };
 
     fetchProfile();
@@ -73,12 +70,7 @@ const ProfileSetup = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      toast.success("Profile saved successfully 🎉");
-      setTimeout(() => navigate("/influencerdash"), 1200);
-
-
-
-      navigate("/influencerdash");
+      navigate("/influencer-dashboard");
     } catch (err) {
       alert("Profile save failed");
     }

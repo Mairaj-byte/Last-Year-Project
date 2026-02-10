@@ -19,12 +19,12 @@ profileRouter.post( "/",
 );
 
 // Logged-in user profile
-profileRouter.get("/me" , getMyProfile);
+profileRouter.get("/me",authMiddleware , getMyProfile);
 
 // All profiles (listing page)
 profileRouter.get("/list", listProfiles);
 
 // Single profile (detail page)
-profileRouter.get("/:userId", singleProfile);
+profileRouter.get("/:id", singleProfile);
 
 export default profileRouter;

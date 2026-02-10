@@ -1,80 +1,60 @@
 import Profile from "../models/profileModel.js";
-import cloudinary from "../config/cloudinary.js";
 
-// CREATE or UPDATE PROFILE
 export const createOrUpdateProfile = async (req, res) => {
   try {
-    const userId = req.user; // must be user._id from auth middleware
-    let profileImage;
+    const userId = req.user;
 
-    // Upload image to cloudinary
-    if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "profiles",
-      });
-      profileImage = result.secure_url;
+    const existingProfile = await Profile.findOne({ userId });
+
+    if (existingProfile) {
+      const updated = await Profile.findOneAndUpdate(
+        { userId },
+        req.body,
+        { new: true }
+      );
+      return res.json(updated);
     }
 
-    // Safe parsing for socialLinks
-    let socialLinks = {};
-    if (req.body.socialLinks) {
-      try {
-        socialLinks =
-          typeof req.body.socialLinks === "string"
-            ? JSON.parse(req.body.socialLinks)
-            : req.body.socialLinks;
-      } catch (error) {
-        socialLinks = {};
-      }
-    }
+    const newProfile = await Profile.create({
+      userId,
+      ...req.body
+    });
 
-    const data = {
-      ...req.body,
-      socialLinks,
-    };
-
-    if (profileImage) data.profileImage = profileImage;
-
-    const profile = await Profile.findOneAndUpdate(
-      { userId },
-      { userId, ...data },
-      { new: true, upsert: true }
-    );
-
-    res.status(201).json({ success: true, profile });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ success: false, message: error.message });
+    res.status(201).json(newProfile);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
-// GET LOGGED-IN USER PROFILE
 export const getMyProfile = async (req, res) => {
   try {
     const profile = await Profile.findOne({ userId: req.user });
-    res.json({ success: true, profile });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.json(profile);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
-// LIST ALL PROFILES (Influencer Listing Page)
+
+
+// function for list product
 export const listProfiles = async (req, res) => {
-  try {
-    const profiles = await Profile.find({});
-    res.json({ success: true, profiles });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ success: false, message: error.message });
-  }
-};
+    try {
+        
+        const profiles = await Profile.find({});
+        res.json({success:true, profiles })
 
-// SINGLE PROFILE (Detail Page)
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
 export const singleProfile = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const { id } = req.params;
 
-    const profile = await Profile.findOne({ userId });
+    const profile = await Profile.findById(id);
 
     if (!profile) {
       return res.status(404).json({
@@ -86,6 +66,9 @@ export const singleProfile = async (req, res) => {
     res.json({ success: true, profile });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
