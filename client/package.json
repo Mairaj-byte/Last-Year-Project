@@ -11,10 +11,21 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.60.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/roboto": "^5.2.9",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
+    "@mui/x-charts": "^8.27.0",
+    "@mui/x-data-grid": "^8.27.0",
+    "@mui/x-date-pickers": "^8.27.0",
+    "@mui/x-tree-view": "^8.27.0",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.4",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.19",
     "lucide-react": "^0.563.0",
+    "multer-storage-cloudinary": "^4.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hot-toast": "^2.6.0",
@@ -25,7 +36,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.5",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.24",
@@ -35,6 +46,7 @@
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
     "vite": "^7.2.4"
   }
 }

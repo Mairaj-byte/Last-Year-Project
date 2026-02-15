@@ -8,13 +8,13 @@ const Footer = () => {
   return (
     <footer className="mt-24 border-t border-gray-200">
       {/* Gradient top glow */}
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
         
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-indigo-600">Influexa</h2>
+          <h2 className="text-2xl font-bold text-blue-600">Influexa</h2>
           <p className="mt-4 text-sm text-gray-500 leading-relaxed">
             Connecting brands with the right creators to build authentic,
             high-impact collaborations.
@@ -49,7 +49,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm text-gray-500">
             {!token && (
               <li>
-                <Link to="/signinpage" className="hover:text-indigo-600 transition">
+                <Link to="/signinpage" className="hover:text-blue-600 transition">
                   Sign In
                 </Link>
               </li>
@@ -57,7 +57,7 @@ const Footer = () => {
 
             {token && identity === "brand" && (
               <li>
-                <Link to="/influlist" className="hover:text-indigo-600 transition">
+                <Link to="/influlist" className="hover:text-blue-600 transition">
                   Find Creators
                 </Link>
               </li>
@@ -65,7 +65,7 @@ const Footer = () => {
 
             {token && identity === "creator" && (
               <li>
-                <Link to="/brandlist" className="hover:text-indigo-600 transition">
+                <Link to="/brandlist" className="hover:text-blue-600 transition">
                   Find Brands
                 </Link>
               </li>
@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
 
         {/* CTA */}
-        <div className="bg-indigo-50 rounded-2xl p-6">
+        <div className="bg-blue-50 rounded-2xl p-6">
           <h3 className="font-semibold text-gray-900">
             Ready to collaborate?
           </h3>
@@ -83,7 +83,7 @@ const Footer = () => {
           </p>
           <Link
             to={token ? (identity === "brand" ? "/influlist" : "/brandlist") : "/signinpage"}
-            className="inline-block mt-4 bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition"
+            className="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Get Started
           </Link>
@@ -95,9 +95,9 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-8 py-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <span>© {new Date().getFullYear()} Influexa. All rights reserved.</span>
           <div className="flex space-x-4 mt-2 md:mt-0">
-            <Link to="/" className="hover:text-indigo-600">Privacy</Link>
-            <Link to="/" className="hover:text-indigo-600">Terms</Link>
-            <Link to="/" className="hover:text-indigo-600">Support</Link>
+            <Link to="/" className="hover:text-blue-600">Privacy</Link>
+            <Link to="/" className="hover:text-blue-600">Terms</Link>
+            <Link to="/" className="hover:text-blue-600">Support</Link>
           </div>
         </div>
       </div>

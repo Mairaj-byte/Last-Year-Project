@@ -6,6 +6,7 @@ import "./config/cloudinary.js";
 
 import userRouter from "./routes/userRoute.js";
 import profileRouter from "./routes/profileRoute.js";
+import brandRouter from "./routes/brandRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -21,10 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api/user", userRouter);
 app.use("/api/profile", profileRouter);
+app.use("/api/brand", brandRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working 🚀");
 });
+
+
 
 app.listen(port, () => {
   console.log(`Server started on PORT : ${port}`);
