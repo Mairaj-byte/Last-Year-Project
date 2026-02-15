@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const authMiddleware = (req, res, next) => {
+const brandAuth = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
 
   if (!token) {
@@ -10,8 +10,9 @@ const authMiddleware = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Store full user object properly
-    req.user = { id: decoded.id };
+    // Attach user object properly
+    req.user = { id: decoded.id || decoded.userId };
+
 
     next();
   } catch (err) {
@@ -19,4 +20,4 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-export default authMiddleware;
+export default brandAuth;

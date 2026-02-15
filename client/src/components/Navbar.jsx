@@ -23,7 +23,7 @@ const Navbar = () => {
       
 
       <h1
-        className="text-3xl font-bold text-indigo-600 cursor-pointer"
+        className="text-3xl font-bold text-blue-600 cursor-pointer"
         onClick={() => navigate("/")}
       >
         Influexa
@@ -66,7 +66,7 @@ const Navbar = () => {
       {!token && (
         <button
           onClick={handleGetStarted}
-          className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700"
+          className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700"
         >
           Get Started
         </button>

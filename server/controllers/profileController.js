@@ -1,34 +1,89 @@
 import Profile from "../models/profileModel.js";
 
+
 export const createOrUpdateProfile = async (req, res) => {
   try {
-    const userId = req.user;
+    const userId = req.user.id;
 
-    const existingProfile = await Profile.findOne({ userId });
+    const {
+      username,
+      bio,
+      niche,
+      location,
+      instagram,
+      youtube,
+      followersCount,
+      engagementRate,
+      pricePerPost,
+    } = req.body;
 
-    if (existingProfile) {
-      const updated = await Profile.findOneAndUpdate(
-        { userId },
-        req.body,
-        { new: true }
-      );
-      return res.json(updated);
+    let profile = await Profile.findOne({ userId });
+
+    // Handle Image
+    let imageUrl = profile?.profileImage || "";
+
+    if (req.file) {
+      imageUrl = req.file.path; // Cloudinary URL
     }
 
-    const newProfile = await Profile.create({
+    const profileData = {
       userId,
-      ...req.body
+      username,
+      bio,
+      niche,
+      location,
+      profileImage: imageUrl,
+      socialLinks: {
+        instagram,
+        youtube,
+      },
+      followersCount: Number(followersCount),
+      engagementRate: Number(engagementRate),
+      pricePerPost: Number(pricePerPost),
+    };
+
+    if (profile) {
+      profile = await Profile.findOneAndUpdate(
+        { userId },
+        profileData,
+        { new: true }
+      );
+
+      return res.status(200).json({
+        success: true,
+        message: "Profile updated",
+        profile,
+      });
+    }
+
+    profile = await Profile.create(profileData);
+
+    res.status(201).json({
+      success: true,
+      message: "Profile created",
+      profile,
     });
 
-    res.status(201).json(newProfile);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 };
 
+
+
+
 export const getMyProfile = async (req, res) => {
   try {
-    const profile = await Profile.findOne({ userId: req.user });
+    const profile = await Profile.findOne({ userId: req.user.id });
+
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found" });
+    }
+
     res.json(profile);
   } catch (err) {
     res.status(500).json({ error: err.message });

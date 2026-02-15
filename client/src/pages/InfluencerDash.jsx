@@ -66,7 +66,7 @@ const InfluencerDash = () => {
           <p className="text-xs text-gray-400 mb-4">80% completed</p>
 
           <button
-            onClick={() => navigate("/profilesetup")}
+            onClick={() => navigate("/influ-profile-setup")}
             className="w-full bg-black text-white text-sm py-2 rounded-lg hover:bg-gray-900 transition"
           >
             Complete Profile
