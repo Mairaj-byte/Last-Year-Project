@@ -18,6 +18,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BrandDetail from "./pages/BrandDetail";
 import InfluProfileSetup from "./pages/InfluProfileSetup";
+import { AboutUs } from "./pages/AboutUs";
+import { Pricing } from "./pages/Pricing";
 
 
 const App = () => {
@@ -54,6 +56,9 @@ const App = () => {
 
           <Route path="/influ-profile-setup" element={<InfluProfileSetup />} />
           <Route path="/brand-profile-setup" element={<BrandProfileSetup />} />
+
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/pricing" element={<Pricing />} />
 
         </Routes>
 
