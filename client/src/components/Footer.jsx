@@ -36,8 +36,13 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-indigo-600 transition">
+              <Link to="/pricing" className="hover:text-indigo-600 transition">
                 Pricing
+              </Link>
+            </li>
+            <li>
+              <Link to="/aboutus" className="hover:text-indigo-600 transition">
+                About Us
               </Link>
             </li>
           </ul>
@@ -98,6 +103,8 @@ const Footer = () => {
             <Link to="/" className="hover:text-blue-600">Privacy</Link>
             <Link to="/" className="hover:text-blue-600">Terms</Link>
             <Link to="/" className="hover:text-blue-600">Support</Link>
+            <Link to="/aboutus" className="hover:text-blue-600">About Us</Link>
+
           </div>
         </div>
       </div>

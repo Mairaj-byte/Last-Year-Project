@@ -123,7 +123,7 @@ const InProfileDetail = () => {
 
             {/* ACTION CENTER */}
             <div className="flex flex-wrap gap-4 pt-4">
-              <button className="flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-200 transition-all active:scale-95">
+              <button  onClick={() => navigate(`/createcampaign/${id}`)} className="flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-200 transition-all active:scale-95">
                 Hire {username}
               </button>
               
