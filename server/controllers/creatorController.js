@@ -1,4 +1,4 @@
-import Profile from "../models/profileModel.js";
+import Creator from "../models/CreatorModel.js";
 
 
 export const createOrUpdateProfile = async (req, res) => {
@@ -17,7 +17,7 @@ export const createOrUpdateProfile = async (req, res) => {
       pricePerPost,
     } = req.body;
 
-    let profile = await Profile.findOne({ userId });
+    let profile = await Creator.findOne({ userId });
 
     // Handle Image
     let imageUrl = profile?.profileImage || "";
@@ -43,7 +43,7 @@ export const createOrUpdateProfile = async (req, res) => {
     };
 
     if (profile) {
-      profile = await Profile.findOneAndUpdate(
+      profile = await Creator.findOneAndUpdate(
         { userId },
         profileData,
         { new: true }
@@ -56,7 +56,7 @@ export const createOrUpdateProfile = async (req, res) => {
       });
     }
 
-    profile = await Profile.create(profileData);
+    profile = await Creator.create(profileData);
 
     res.status(201).json({
       success: true,
@@ -78,7 +78,7 @@ export const createOrUpdateProfile = async (req, res) => {
 
 export const getMyProfile = async (req, res) => {
   try {
-    const profile = await Profile.findOne({ userId: req.user.id });
+    const profile = await Creator.findOne({ userId: req.user.id });
 
     if (!profile) {
       return res.status(404).json({ message: "Profile not found" });
@@ -96,7 +96,7 @@ export const getMyProfile = async (req, res) => {
 export const listProfiles = async (req, res) => {
     try {
         
-        const profiles = await Profile.find({});
+        const profiles = await Creator.find({});
         res.json({success:true, profiles })
 
     } catch (error) {
@@ -109,7 +109,7 @@ export const singleProfile = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const profile = await Profile.findById(id);
+    const profile = await Creator.findById(id);
 
     if (!profile) {
       return res.status(404).json({

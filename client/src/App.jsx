@@ -20,6 +20,9 @@ import BrandDetail from "./pages/BrandDetail";
 import InfluProfileSetup from "./pages/InfluProfileSetup";
 import { AboutUs } from "./pages/AboutUs";
 import { Pricing } from "./pages/Pricing";
+import Checkout from "./pages/Checkout";
+import MyPage from "./pages/mypage";
+import CreateCampaign from "./pages/CreateCampaign";
 
 
 const App = () => {
@@ -59,6 +62,13 @@ const App = () => {
 
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/createcampaign/:id" element={<CreateCampaign />} />
+
+
+
+         
+          
 
         </Routes>
 

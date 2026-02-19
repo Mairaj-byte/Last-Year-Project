@@ -5,8 +5,11 @@ import connectDB from "./config/mongodb.js";
 import "./config/cloudinary.js";
 
 import userRouter from "./routes/userRoute.js";
-import profileRouter from "./routes/profileRoute.js";
 import brandRouter from "./routes/brandRoute.js";
+import paymentRouter from "./routes/paymentRoute.js";
+import campaignRouter from "./routes/campaignRoute.js";
+import collaborationRouter from "./routes/collaborationRoute.js";
+import creatorRouter from "./routes/creatorRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -21,8 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/user", userRouter);
-app.use("/api/profile", profileRouter);
+app.use("/api/profile", creatorRouter);
 app.use("/api/brand", brandRouter);
+
+app.use("/api/campaign", campaignRouter);
+app.use("/api/collaboration", collaborationRouter);
+app.use("/api/payment", paymentRouter);
 
 
 

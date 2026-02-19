@@ -4,27 +4,27 @@ import {
   getMyProfile,
   listProfiles,
   singleProfile,
-} from "../controllers/profileController.js";
+} from "../controllers/creatorController.js";
 
 import authMiddleware from "../middleware/authMiddleware.js";
 import upload from "../middleware/upload.js";
 
-const profileRouter = express.Router();
+const creatorRouter = express.Router();
 
 // Create / Update Profile
-profileRouter.post( "/",
+creatorRouter.post( "/",
   authMiddleware,
   upload.single("profileImage"),
   createOrUpdateProfile
 );
 
 // Logged-in user profile
-profileRouter.get("/me",authMiddleware , getMyProfile);
+creatorRouter.get("/me",authMiddleware , getMyProfile);
 
 // All profiles (listing page)
-profileRouter.get("/list", listProfiles);
+creatorRouter.get("/list", listProfiles);
 
 // Single profile (detail page)
-profileRouter.get("/:id", singleProfile);
+creatorRouter.get("/:id", singleProfile);
 
-export default profileRouter;
+export default creatorRouter;
