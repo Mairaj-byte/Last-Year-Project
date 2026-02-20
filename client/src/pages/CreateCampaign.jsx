@@ -35,7 +35,7 @@ const CreateCampaign = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "/api/campaign/create",
+        "http://localhost:4000/api/campaign/create",
         {
           influencerId: id,
           title: form.title,
