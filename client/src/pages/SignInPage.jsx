@@ -36,6 +36,7 @@ const SignInPage = () => {
       if (data.success) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("identity", data.user.identity);
+        localStorage.setItem("brandId", data.user.id);
         setToken(data.token);
         setIdentity(data.user.identity);
 

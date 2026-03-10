@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   LayoutDashboard,
   BarChart3,
@@ -12,11 +12,18 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+import { ShopContext } from "../context/ShopContext";
+
+
 
 const BrandDash = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [campaigns, setCampaigns] = useState([]);
+
+  const { brandId } = useContext(ShopContext);
 
   const stats = [
     {
@@ -46,9 +53,25 @@ const BrandDash = () => {
     { name: "Settings", icon: Settings },
   ];
 
+  useEffect(() => {
+    const fetchCampaigns = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:4000/api/campaign/brand/${brandId}`
+        );
+        const data = await res.json();
+        setCampaigns(data);
+      } catch (error) {
+        console.error("Error fetching campaigns:", error);
+      }
+    };
+
+    fetchCampaigns();
+  }, [brandId]);
+
   return (
     <div className="mt-21 min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 flex">
-
+      
       {/* Overlay for Mobile */}
       {sidebarOpen && (
         <div
@@ -66,10 +89,7 @@ const BrandDash = () => {
           <span className="text-2xl font-bold tracking-tight">
             LUXE<span className="text-indigo-600">.</span>
           </span>
-          <button
-            className="md:hidden"
-            onClick={() => setSidebarOpen(false)}
-          >
+          <button className="md:hidden" onClick={() => setSidebarOpen(false)}>
             <X size={22} />
           </button>
         </div>
@@ -100,14 +120,11 @@ const BrandDash = () => {
 
       {/* Main */}
       <main className="flex-1 flex flex-col">
-
+        
         {/* Header */}
         <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-gray-200 px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <button
-              className="md:hidden"
-              onClick={() => setSidebarOpen(true)}
-            >
+            <button className="md:hidden" onClick={() => setSidebarOpen(true)}>
               <Menu size={24} />
             </button>
             <h1 className="text-xl font-bold">Dashboard</h1>
@@ -126,7 +143,10 @@ const BrandDash = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button onClick={() => navigate("/brand-profile-setup")} className="relative p-2 rounded-full hover:bg-gray-100">
+            <button
+              onClick={() => navigate("/brand-profile-setup")}
+              className="relative p-2 rounded-full hover:bg-gray-100"
+            >
               <Bell size={20} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
             </button>
@@ -148,7 +168,7 @@ const BrandDash = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -159,9 +179,7 @@ const BrandDash = () => {
                 />
                 <div className="relative z-10">
                   <p className="text-gray-500 text-sm">{stat.label}</p>
-                  <h3 className="text-3xl font-bold mt-2">
-                    {stat.value}
-                  </h3>
+                  <h3 className="text-3xl font-bold mt-2">{stat.value}</h3>
                   <span className="text-sm text-green-600 font-semibold mt-2 inline-block">
                     {stat.growth}
                   </span>
@@ -170,12 +188,10 @@ const BrandDash = () => {
             ))}
           </div>
 
-          {/* Chart Card */}
-          <div className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
+          {/* Chart */}
+          <div className="bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl shadow-xl overflow-hidden mb-10">
             <div className="p-6 border-b border-gray-200 flex justify-between items-center">
-              <h3 className="text-lg font-semibold">
-                Campaign Analytics
-              </h3>
+              <h3 className="text-lg font-semibold">Campaign Analytics</h3>
               <button className="flex items-center gap-1 text-indigo-600 font-medium text-sm">
                 View Report <ArrowUpRight size={14} />
               </button>
@@ -185,6 +201,45 @@ const BrandDash = () => {
               Chart / Graph Placeholder
             </div>
           </div>
+
+          {/* Campaign List */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Your Campaigns</h2>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {campaigns.map((campaign) => (
+                <div
+                  key={campaign._id}
+                  className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 hover:shadow-lg transition"
+                >
+                  <h3 className="text-lg font-semibold mb-2">
+                    {campaign.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm mb-3">
+                    {campaign.description}
+                  </p>
+
+                  <div className="text-sm text-gray-500 space-y-1">
+                    <p><strong>Platform:</strong> {campaign.platform}</p>
+                    <p><strong>Budget:</strong> ₹{campaign.totalBudget}</p>
+                    <p><strong>Status:</strong> {campaign.status}</p>
+                  </div>
+
+                  <div className="mt-4 flex justify-between text-sm">
+                    <span className="text-green-600 font-medium">
+                      Advance ₹{campaign.advanceAmount}
+                    </span>
+                    <span className="text-blue-600 font-medium">
+                      Final ₹{campaign.finalAmount}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
         </div>
       </main>
     </div>
