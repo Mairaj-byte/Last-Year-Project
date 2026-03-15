@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const CreateCampaign = () => {
 
-  const { id } = useParams(); // ✅ must be inside component
+  const { id } = useParams(); 
 
   const initialState = {
     influencerId: id,

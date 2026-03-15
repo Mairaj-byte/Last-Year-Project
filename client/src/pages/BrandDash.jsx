@@ -23,7 +23,7 @@ const BrandDash = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
 
-  const { brandId } = useContext(ShopContext);
+  const { userId } = useContext(ShopContext);
 
   const stats = [
     {
@@ -57,7 +57,7 @@ const BrandDash = () => {
     const fetchCampaigns = async () => {
       try {
         const res = await fetch(
-          `http://localhost:4000/api/campaign/brand/${brandId}`
+          `http://localhost:4000/api/campaign/brand/${userId}`
         );
         const data = await res.json();
         setCampaigns(data);
@@ -67,7 +67,7 @@ const BrandDash = () => {
     };
 
     fetchCampaigns();
-  }, [brandId]);
+  }, [userId]);
 
   return (
     <div className="mt-21 min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 flex">
