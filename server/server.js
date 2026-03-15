@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/user", userRouter);
-app.use("/api/profile", creatorRouter);
+app.use("/api/creator", creatorRouter);
 app.use("/api/brand", brandRouter);
 
 app.use("/api/campaign", campaignRouter);

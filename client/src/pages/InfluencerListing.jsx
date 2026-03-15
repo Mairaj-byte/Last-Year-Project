@@ -9,7 +9,7 @@ const InfluencerListing = () => {
   useEffect(() => {
     const fetchCreators = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/profile/list");
+        const res = await fetch("http://localhost:4000/api/creator/list");
         const data = await res.json();
         if (data.success) {
           setCreators(data.profiles);
@@ -60,6 +60,7 @@ const InfluencerListing = () => {
             {creators.map((creator) => {
               const {
                 _id,
+                userId,
                 username,
                 bio,
                 niche,
@@ -73,8 +74,8 @@ const InfluencerListing = () => {
 
               return (
                 <div
-                  key={_id}
-                  onClick={() => navigate(`/profile/${_id}`)}
+                  key={userId}
+                  onClick={() => navigate(`/profile/${userId}`)}
                   className="group relative cursor-pointer bg-white rounded-lg p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-300"
                 >
                   {/* Floating Badge */}
