@@ -8,16 +8,16 @@ const ShopContextProvider = ({ children }) => {
 
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [identity, setIdentity] = useState(localStorage.getItem("identity"));
-  const [brandId, setBrandId] = useState(localStorage.getItem("brandId"));
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("identity");
-    localStorage.removeItem("brandId");
+    localStorage.removeItem("userId");
 
     setToken(null);
     setIdentity(null);
-    setBrandId(null);
+    setUserId(null);
 
     navigate("/");
   };
@@ -29,8 +29,8 @@ const ShopContextProvider = ({ children }) => {
         setToken,
         identity,
         setIdentity,
-        brandId,
-        setBrandId,
+        userId,
+        setUserId,
         logout,
       }}
     >
