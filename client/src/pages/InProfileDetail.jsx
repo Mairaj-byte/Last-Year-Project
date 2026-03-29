@@ -10,7 +10,7 @@ const InProfileDetail = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/api/profile/${id}`);
+        const res = await fetch(`http://localhost:4000/api/creator/${id}`);
         const data = await res.json();
         if (data.success) {
           setProfile(data.profile);

@@ -105,25 +105,55 @@ export const listProfiles = async (req, res) => {
     }
 }
 
-export const singleProfile = async (req, res) => {
-  try {
-    const { id } = req.params;
+// export const singleProfile = async (req, res) => {
+//   try {
+//     const { userId } = req.params;
 
-    const profile = await Creator.findById(id);
+//     const profile = await Creator.findById(userId);
+
+//     if (!profile) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "Profile not found",
+//       });
+//     }
+
+//     res.json({ success: true, profile });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
+
+
+
+
+export const getCreatorProfileByUserId = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const profile = await Creator.findOne({ userId });
 
     if (!profile) {
       return res.status(404).json({
         success: false,
-        message: "Profile not found",
+        message: "Creator profile not found"
       });
     }
 
-    res.json({ success: true, profile });
+    return res.status(200).json({
+      success: true,
+      profile
+    });
+
   } catch (error) {
-    console.log(error);
-    res.status(500).json({
+    console.error("Error fetching creator profile:", error);
+    return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Server error"
     });
   }
 };

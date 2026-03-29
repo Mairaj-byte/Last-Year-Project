@@ -3,7 +3,8 @@ import {
   createOrUpdateProfile,
   getMyProfile,
   listProfiles,
-  singleProfile,
+  // singleProfile,
+  getCreatorProfileByUserId,
 } from "../controllers/creatorController.js";
 
 import authMiddleware from "../middleware/authMiddleware.js";
@@ -25,6 +26,6 @@ creatorRouter.get("/me",authMiddleware , getMyProfile);
 creatorRouter.get("/list", listProfiles);
 
 // Single profile (detail page)
-creatorRouter.get("/:id", singleProfile);
+creatorRouter.get("/:userId", getCreatorProfileByUserId);
 
 export default creatorRouter;
