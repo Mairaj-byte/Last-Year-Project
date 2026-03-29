@@ -100,8 +100,8 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-8 py-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <span>© {new Date().getFullYear()} Influexa. All rights reserved.</span>
           <div className="flex space-x-4 mt-2 md:mt-0">
-            <Link to="/" className="hover:text-blue-600">Privacy</Link>
-            <Link to="/" className="hover:text-blue-600">Terms</Link>
+            <Link to="/legalpage" className="hover:text-blue-600">Privacy</Link>
+            <Link to="/legalpage" className="hover:text-blue-600">Terms</Link>
             <Link to="/" className="hover:text-blue-600">Support</Link>
             <Link to="/aboutus" className="hover:text-blue-600">About Us</Link>
 

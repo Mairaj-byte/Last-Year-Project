@@ -20,9 +20,11 @@ import BrandDetail from "./pages/BrandDetail";
 import InfluProfileSetup from "./pages/InfluProfileSetup";
 import { AboutUs } from "./pages/AboutUs";
 import { Pricing } from "./pages/Pricing";
+import { LegalPage } from "./pages/LegalPage";
 import Checkout from "./pages/Checkout";
 import MyPage from "./pages/mypage";
 import CreateCampaign from "./pages/CreateCampaign";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 
 const App = () => {
@@ -49,11 +51,31 @@ const App = () => {
           <Route path="/branddash" element={<BrandDash />} />
           <Route path="/influencerdash" element={<InfluencerDash />} />
 
-          
+
 
           <Route path="/signinpage" element={<SignInPage />} />
-          <Route path="/brandlist" element={<BrandListing />} />
-          <Route path="/influlist" element={<InfluencerListing />} />
+
+          {/* <Route path="/brandlist" element={<BrandListing />} />
+          <Route path="/influlist" element={<InfluencerListing />} /> */}
+
+          <Route
+            path="/brandlist"
+            element={
+              <ProtectedRoute>
+                <BrandListing />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/influlist"
+            element={
+              <ProtectedRoute>
+                <InfluencerListing />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="/profile/:id" element={<InProfileDetail />} />
           <Route path="/brand/:id" element={<BrandDetail />} />
 
@@ -62,13 +84,14 @@ const App = () => {
 
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/legalpage" element={<LegalPage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/createcampaign/:id" element={<CreateCampaign />} />
 
 
 
-         
-          
+
+
 
         </Routes>
 
